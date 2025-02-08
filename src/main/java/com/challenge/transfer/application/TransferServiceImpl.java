@@ -15,22 +15,22 @@ public class TransferServiceImpl implements TransferService {
     private final TransferRepository transferRepository;
 
     @Override
-    public Transfer update(Transfer user) {
-        return null;
+    public Transfer update(Transfer transfer) {
+        return transferRepository.save(transfer);
     }
 
     @Override
     public List<Transfer> findAll() {
-        return List.of();
+        return transferRepository.findAll();
     }
 
     @Override
     public Transfer findById(String id) {
-        return null;
+        return transferRepository.findById(id).orElseThrow();
     }
 
     @Override
-    public void delete(Long id) {
-
+    public void delete(String id) {
+        transferRepository.deleteById(id);
     }
 }
