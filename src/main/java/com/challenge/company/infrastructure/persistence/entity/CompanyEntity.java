@@ -1,22 +1,20 @@
 package com.challenge.company.infrastructure.persistence.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.challenge.transfer.infrastructure.persistence.entity.TransferEntity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.CreatedBy;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Entity
 @RequiredArgsConstructor
 public class CompanyEntity {
     @Id
-    @GeneratedValue(generator = "uuid")
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @Column(nullable = false, name = "name")
@@ -25,4 +23,7 @@ public class CompanyEntity {
     @CreationTimestamp
     @Column(nullable = false, name = "date_of_accession")
     private LocalDateTime dateOfAccession;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "transfer")
+    private Set<TransferEntity> clientCompanyUserSet;
 }
