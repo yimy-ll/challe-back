@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: challenge
+
+server:
+  port: 8220
+
+---
+spring:
+  config:
+    activate:
+      on-profile: default
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
