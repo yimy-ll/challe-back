@@ -8,19 +8,19 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-@Getter
-@Entity(name = "company")
-@RequiredArgsConstructor
+@Data
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "company")
 public class CompanyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @Column(nullable = false, name = "name")
-    @NonNull
     private String name;
 
-    @NonNull
     @CreationTimestamp
     @Column(nullable = false, name = "date_of_accession")
     private LocalDateTime dateOfAccession;
