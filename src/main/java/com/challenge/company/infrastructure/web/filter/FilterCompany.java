@@ -1,11 +1,11 @@
 package com.challenge.company.infrastructure.web.filter;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
-@Getter
-@RequiredArgsConstructor
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class FilterCompany {
 
     @Schema(description = "El nombre de la empresa que se busca.", example = "Acme Inc.")

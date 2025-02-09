@@ -16,7 +16,7 @@ public class CompanySpecifications {
     public static Specification<CompanyEntity> findStockByFilter(FilterCompany filter) {
         return (root, query, criteriaBuilder) -> {
             List<Predicate> criteriaList = new ArrayList<>();
-            LocalDate lastMonth = LocalDate.now().minusMonths(1);
+            LocalDate lastMonth = LocalDate.now().withDayOfMonth(1);
 
             if (Boolean.TRUE.equals(filter.getCompaniesJoinedLastMonth())) {
                 criteriaList.add(criteriaBuilder.greaterThanOrEqualTo(root.get("dateOfAccession"), lastMonth));
