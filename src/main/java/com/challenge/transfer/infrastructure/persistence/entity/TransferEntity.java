@@ -11,7 +11,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Getter
-@Entity
+@Entity(name = "transfer")
 @RequiredArgsConstructor
 public class TransferEntity {
     @Id

@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class RepositoryAdapter implements TransferRepository {
+public class TransferRepositoryAdapter implements TransferRepository {
     private final PostgreSQLTransferRepository postgreSQLTransferRepository;
     private final TransferMapper transferMapper;
 

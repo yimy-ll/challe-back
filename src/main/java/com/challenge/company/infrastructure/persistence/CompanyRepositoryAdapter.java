@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class RepositoryAdapter implements CompanyRepository {
+public class CompanyRepositoryAdapter implements CompanyRepository {
     private final PostgreSQLCompanyRepository postgreSQLCompanyRepository;
     private final CompanyMapper companyMapper;
 
