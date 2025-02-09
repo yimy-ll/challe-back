@@ -17,62 +17,62 @@ class CompanyMapperTest {
     private final LocalDateTime DATA_TIME_TEST = LocalDateTime.of(2021, 1, 1, 0, 0);
 
     @Test
-    void shouldMapCompanyEntityToCompany() {
-        CompanyEntity entity = new CompanyEntity("test1","TechCorp", DATA_TIME_TEST, Set.of());
+    void testShouldMapCompanyEntityToCompany() {
+        CompanyEntity companyEntity = new CompanyEntity("test1","TechCorp", DATA_TIME_TEST, Set.of());
 
-        Company company = companyMapper.companyEntityToCompany(entity);
+        Company company = companyMapper.companyEntityToCompany(companyEntity);
 
         assertNotNull(company);
-        assertEquals("test1", company.getId());
-        assertEquals("TechCorp", company.getName());
-        assertEquals(DATA_TIME_TEST, company.getDateOfAccession());
+        assertEquals(companyEntity.getId(), company.getId());
+        assertEquals(companyEntity.getName(), company.getName());
+        assertEquals(companyEntity.getDateOfAccession(), company.getDateOfAccession());
     }
 
     @Test
-    void shouldMapCompanyToCompanyEntity() {
+    void testShouldMapCompanyToCompanyEntity() {
         Company company = Company.builder()
                 .id("test2")
                 .name("SoftDev")
                 .dateOfAccession(DATA_TIME_TEST)
                 .build();
 
-        CompanyEntity entity = companyMapper.companyToCompanyEntity(company);
+        CompanyEntity companyEntity = companyMapper.companyToCompanyEntity(company);
 
-        assertNotNull(entity);
-        assertEquals("test2", entity.getId());
-        assertEquals("SoftDev", entity.getName());
-        assertEquals(DATA_TIME_TEST, entity.getDateOfAccession());
+        assertNotNull(companyEntity);
+        assertEquals(company.getId(), companyEntity.getId());
+        assertEquals(company.getName(), companyEntity.getName());
+        assertEquals(company.getDateOfAccession(), companyEntity.getDateOfAccession());
     }
 
     @Test
-    void shouldMapCompanyDtoToCompany() {
-        CompanyDto dto = CompanyDto.builder()
+    void testShouldMapCompanyDtoToCompany() {
+        CompanyDto companyDto = CompanyDto.builder()
                 .id("test3")
                 .name("Innova")
                 .dateOfAccession(DATA_TIME_TEST)
                 .build();
 
-        Company company = companyMapper.companyDtoToCompany(dto);
+        Company company = companyMapper.companyDtoToCompany(companyDto);
 
         assertNotNull(company);
-        assertEquals("test3", company.getId());
-        assertEquals("Innova", company.getName());
-        assertEquals(DATA_TIME_TEST, company.getDateOfAccession());
+        assertEquals(companyDto.getId(), company.getId());
+        assertEquals(companyDto.getName(), company.getName());
+        assertEquals(companyDto.getDateOfAccession(), company.getDateOfAccession());
     }
 
     @Test
-    void shouldMapCompanyToCompanyDto() {
+    void testShouldMapCompanyToCompanyDto() {
         Company company = Company.builder()
                 .id("test4")
                 .name("NextGen")
                 .dateOfAccession(DATA_TIME_TEST)
                 .build();
 
-        CompanyDto dto = companyMapper.companyToCompanyDto(company);
+        CompanyDto companyDto = companyMapper.companyToCompanyDto(company);
 
-        assertNotNull(dto);
-        assertEquals("test4", dto.getId());
-        assertEquals("NextGen", dto.getName());
-        assertEquals(DATA_TIME_TEST, dto.getDateOfAccession());
+        assertNotNull(companyDto);
+        assertEquals(company.getId(), companyDto.getId());
+        assertEquals(company.getName(), companyDto.getName());
+        assertEquals(company.getDateOfAccession(), companyDto.getDateOfAccession());
     }
 }

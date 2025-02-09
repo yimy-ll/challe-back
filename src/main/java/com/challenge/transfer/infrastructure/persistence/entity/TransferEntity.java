@@ -3,16 +3,17 @@ package com.challenge.transfer.infrastructure.persistence.entity;
 import com.challenge.company.infrastructure.persistence.entity.CompanyEntity;
 import com.challenge.transfer.domain.TransferType;
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Entity(name = "transfer")
-@RequiredArgsConstructor
+@Data
+@Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "transfer")
 public class TransferEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

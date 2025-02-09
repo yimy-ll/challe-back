@@ -1,10 +1,10 @@
 package com.challenge.transfer.domain;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
-@Getter
-@RequiredArgsConstructor
+@Data
+@Builder
 public class Transfer {
     private String id;
     private Double amount;
