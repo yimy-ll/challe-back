@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Getter
-@NoArgsConstructor
 @RequiredArgsConstructor
 public class Company {
     private String id;

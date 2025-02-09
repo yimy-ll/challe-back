@@ -11,7 +11,6 @@ import java.util.Set;
 @Getter
 @Entity(name = "company")
 @RequiredArgsConstructor
-@NoArgsConstructor
 public class CompanyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

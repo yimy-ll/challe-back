@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Getter
-@NoArgsConstructor
 @RequiredArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CompanyDto {

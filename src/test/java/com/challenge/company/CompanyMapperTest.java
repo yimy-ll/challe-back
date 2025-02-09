@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
 class CompanyMapperTest {
     private final CompanyMapper companyMapper = Mappers.getMapper(CompanyMapper.class);
@@ -29,7 +28,7 @@ class CompanyMapperTest {
 
     @Test
     void shouldMapCompanyToCompanyEntity() {
-        Company company = new Company("SoftDev", DATA_TIME_TEST, Set.of());
+        Company company = new Company("SoftDev", DATA_TIME_TEST);
 
         CompanyEntity entity = companyMapper.companyToCompanyEntity(company);
 
@@ -40,7 +39,7 @@ class CompanyMapperTest {
 
     @Test
     void shouldMapCompanyDtoToCompany() {
-        CompanyDto dto = new CompanyDto("Innova", DATA_TIME_TEST, Set.of());
+        CompanyDto dto = new CompanyDto("Innova", DATA_TIME_TEST);
 
         Company company = companyMapper.companyDtoToCompany(dto);
 
@@ -50,7 +49,7 @@ class CompanyMapperTest {
 
     @Test
     void shouldMapCompanyToCompanyDto() {
-        Company company = new Company("NextGen", DATA_TIME_TEST, Set.of());
+        Company company = new Company("NextGen", DATA_TIME_TEST);
 
         CompanyDto dto = companyMapper.companyToCompanyDto(company);
 
