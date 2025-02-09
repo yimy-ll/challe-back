@@ -3,6 +3,7 @@ package com.challenge.company.application;
 import com.challenge.company.domain.Company;
 import com.challenge.company.domain.CompanyRepository;
 import com.challenge.company.domain.CompanyService;
+import com.challenge.company.infrastructure.web.filter.FilterCompany;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +25,8 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<Company> findAll() {
-        return companyRepository.findAll();
+    public List<Company> findAll(FilterCompany filter) {
+        return companyRepository.findAll(filter);
     }
 
     @Override

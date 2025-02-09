@@ -4,6 +4,8 @@ import com.challenge.company.domain.Company;
 import com.challenge.company.domain.CompanyRepository;
 import com.challenge.company.infrastructure.CompanyMapper;
 import com.challenge.company.infrastructure.persistence.entity.CompanyEntity;
+import com.challenge.company.infrastructure.persistence.specification.CompanySpecifications;
+import com.challenge.company.infrastructure.web.filter.FilterCompany;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -40,8 +42,8 @@ public class CompanyRepositoryAdapter implements CompanyRepository {
     }
 
     @Override
-    public List<Company> findAll() {
-        return postgreSQLCompanyRepository.findAll().stream()
+    public List<Company> findAll(FilterCompany filter) {
+        return postgreSQLCompanyRepository.findAll(CompanySpecifications.findStockByFilter(filter)).stream()
                 .map(companyMapper::companyEntityToCompany)
                 .toList();
     }

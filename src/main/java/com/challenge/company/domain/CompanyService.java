@@ -1,6 +1,7 @@
 package com.challenge.company.domain;
 
 import com.challenge.company.application.CompanyServiceImpl;
+import com.challenge.company.infrastructure.web.filter.FilterCompany;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface CompanyService {
 
     Company update(Company company);
 
-    List<Company> findAll();
+    List<Company> findAll(FilterCompany filter);
 
     Company findById(String id);
 
