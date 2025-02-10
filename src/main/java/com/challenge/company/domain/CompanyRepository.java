@@ -9,4 +9,6 @@ public interface CompanyRepository {
     Company save(Company company);
 
     List<Company> findAll(FilterCompany filter);
+
+    Boolean existsCompanyByName(String name);
 }

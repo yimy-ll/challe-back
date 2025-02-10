@@ -5,8 +5,8 @@ import com.challenge.company.domain.CompanyService;
 import com.challenge.company.infrastructure.CompanyMapper;
 import com.challenge.company.infrastructure.web.dto.CompanyDto;
 import com.challenge.company.infrastructure.web.filter.FilterCompany;
+import com.challenge.exception.domain.ErrorMessage;
 import com.challenge.utils.ResponseDto;
-import com.challenge.utils.ResponseErrorDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -34,8 +34,7 @@ public class CompanyController {
 
     @Operation(
             summary = "Obtener todas las empresas",
-            description = "Obtiene una lista de todas las empresas, con la opción de filtrado por transferencias y fecha de adhesión.",
-            tags = { "Companies" }
+            description = "Obtiene una lista de todas las empresas, con la opción de filtrado por transferencias y fecha de adhesión."
     )
     @ApiResponses(value = {
             @ApiResponse(
@@ -108,16 +107,8 @@ public class CompanyController {
             responseCode = "400",
             description = "Solicitud inválida",
             content = @Content(mediaType = "application/json", schema = @Schema(
-                    implementation = ResponseErrorDto.class,
-                    description = "Respuesta de error por solicitud inválida.",
-                    example = "{\n" +
-                            "  \"status\": \"error\",\n" +
-                            "  \"message\": \"Campos requeridos \",\n" +
-                            "  \"errors\": [\n" +
-                            "    \"La Razón Social (name) no puede estar vacía\",\n" +
-                            "    \"La Razón Social (neme) debe tener entre 3 y 100 caracteres\"\n" +
-                            "  ]\n" +
-                            "}"
+                    implementation = ErrorMessage.class,
+                    description = "Respuesta de error por solicitud inválida."
             ))
     )
     @PostMapping("/create")

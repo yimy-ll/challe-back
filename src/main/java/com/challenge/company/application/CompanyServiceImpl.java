@@ -3,6 +3,7 @@ package com.challenge.company.application;
 import com.challenge.company.domain.Company;
 import com.challenge.company.domain.CompanyRepository;
 import com.challenge.company.domain.CompanyService;
+import com.challenge.company.domain.exception.CompanyAlreadyExistsException;
 import com.challenge.company.infrastructure.web.filter.FilterCompany;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,9 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public Company save(Company company) {
+        if(companyRepository.existsCompanyByName(company.getName()))
+            throw new CompanyAlreadyExistsException(company.getName());
+
         return companyRepository.save(company);
     }
 

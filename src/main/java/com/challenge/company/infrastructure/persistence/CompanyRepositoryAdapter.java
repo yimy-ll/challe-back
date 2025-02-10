@@ -31,4 +31,9 @@ public class CompanyRepositoryAdapter implements CompanyRepository {
                 .map(companyMapper::companyEntityToCompany)
                 .toList();
     }
+
+    @Override
+    public Boolean existsCompanyByName(String name) {
+        return postgreSQLCompanyRepository.existsCompanyEntityByName(name);
+    }
 }
