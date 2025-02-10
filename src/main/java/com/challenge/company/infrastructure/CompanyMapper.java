@@ -9,6 +9,7 @@ import org.mapstruct.MappingConstants;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface CompanyMapper {
+    @Mapping(target = "transfers", ignore = true)
     Company companyEntityToCompany(CompanyEntity companyEntity);
 
     @Mapping(target = "transfers", ignore = true)

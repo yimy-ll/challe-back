@@ -6,6 +6,7 @@ import com.challenge.company.infrastructure.CompanyMapper;
 import com.challenge.company.infrastructure.persistence.entity.CompanyEntity;
 import com.challenge.company.infrastructure.persistence.specification.CompanySpecifications;
 import com.challenge.company.infrastructure.web.filter.FilterCompany;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -18,6 +19,7 @@ public class CompanyRepositoryAdapter implements CompanyRepository {
     private final CompanyMapper companyMapper;
 
     @Override
+    @Transactional
     public Company save(Company company) {
         CompanyEntity updatedCompanyEntity = companyMapper.companyToCompanyEntity(company);
         updatedCompanyEntity = postgreSQLCompanyRepository.save(updatedCompanyEntity);
