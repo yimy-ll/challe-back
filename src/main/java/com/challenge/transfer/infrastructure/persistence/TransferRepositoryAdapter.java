@@ -1,7 +1,7 @@
 package com.challenge.transfer.infrastructure.persistence;
 
 import com.challenge.transfer.domain.Transfer;
-import com.challenge.transfer.domain.TransferRepository;
+import com.challenge.transfer.domain.ports.out.TransferRepository;
 import com.challenge.transfer.infrastructure.TransferMapper;
 import com.challenge.transfer.infrastructure.persistence.entity.TransferEntity;
 import lombok.RequiredArgsConstructor;
