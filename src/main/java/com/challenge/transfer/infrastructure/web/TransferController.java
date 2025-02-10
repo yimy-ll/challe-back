@@ -20,28 +20,29 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/transfer")
-@Tag(name = "Transfer", description = "Trans operations")
+@Tag(name = "Transfer", description = "Transfer operations")
 public class TransferController {
     private final TransferService transferService;
     private final TransferMapper transferMapper;
 
     @Operation(
-            summary = "Crear una nueva empresa",
-            description = "Crea una nueva empresa en el sistema y devuelve la información creada."
+            summary = "Crear una transferencia",
+            description = "Crea una transferencia con los datos proporcionados."
     )
     @ApiResponse(
             responseCode = "201",
             description = "Empresa creada exitosamente",
             content = @Content(mediaType = "application/json", schema = @Schema(
                     implementation = ResponseDto.class,
-                    description = "Respuesta exitosa con la empresa creada.",
+                    description = "Respuesta exitosa con la transferencia creada.",
                     example = "{\n" +
                             "  \"status\": \"success\",\n" +
                             "  \"message\": \"Empresa creada exitosamente\",\n" +
                             "  \"data\": {\n" +
                             "    \"id\": \"fcd846d1-350f-45cf-b881-799a7e319d62\",\n" +
-                            "    \"name\": \"Acme Inc.\",\n" +
-                            "    \"dateOfAccession\": \"2024-07-11T14:50:00\"\n" +
+                            "    \"amount\": \"1200.2\",\n" +
+                            "    \"transferType\": \"Cuenta de Débito\",\n" +
+                            "    \"dateTransfer\": \"2024-07-11T14:50:00\"\n" +
                             "  }\n" +
                             "}"
             ))

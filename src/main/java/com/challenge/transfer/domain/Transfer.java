@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class Transfer {
     private String id;
     private Double amount;
-    private Company company;
+    private String companyId;
     private TransferType transferType;
     private LocalDateTime dateTransfer;
 }
