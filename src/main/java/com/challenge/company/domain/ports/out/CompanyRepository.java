@@ -11,4 +11,6 @@ public interface CompanyRepository {
     List<Company> findAll(FilterCompany filter);
 
     Boolean existsCompanyByName(String name);
+
+    Boolean existCompanyById(String companyId);
 }

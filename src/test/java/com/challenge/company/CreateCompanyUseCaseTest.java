@@ -17,7 +17,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalDateTime;
 
 @ExtendWith(MockitoExtension.class)
-class CreateCompanyUseCaseImplTest {
+class CreateCompanyUseCaseTest {
     private final LocalDateTime DATA_TIME_TEST = LocalDateTime.of(2021, 1, 1, 0, 0);
 
     @Mock

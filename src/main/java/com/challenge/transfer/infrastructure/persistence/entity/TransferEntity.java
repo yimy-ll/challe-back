@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Table(name = "transfer")
 public class TransferEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @Column(nullable = false, length = 50, name = "amount")

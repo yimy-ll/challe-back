@@ -1,6 +1,7 @@
 package com.challenge.company.infrastructure.persistence;
 
 import com.challenge.company.domain.Company;
+import com.challenge.company.domain.exception.CompanyNotFoundException;
 import com.challenge.company.domain.ports.out.CompanyRepository;
 import com.challenge.company.infrastructure.CompanyMapper;
 import com.challenge.company.infrastructure.persistence.entity.CompanyEntity;
@@ -36,5 +37,10 @@ public class CompanyRepositoryAdapter implements CompanyRepository {
     @Override
     public Boolean existsCompanyByName(String name) {
         return postgreSQLCompanyRepository.existsCompanyEntityByName(name);
+    }
+
+    @Override
+    public Boolean existCompanyById(String companyId) {
+        return postgreSQLCompanyRepository.existsById(companyId);
     }
 }

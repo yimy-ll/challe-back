@@ -31,7 +31,7 @@ public class TransferController {
     )
     @ApiResponse(
             responseCode = "201",
-            description = "Empresa creada exitosamente",
+            description = "Tranferencia creada exitosamente",
             content = @Content(mediaType = "application/json", schema = @Schema(
                     implementation = ResponseDto.class,
                     description = "Respuesta exitosa con la transferencia creada.",
