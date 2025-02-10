@@ -8,11 +8,5 @@ import java.util.List;
 public interface CompanyService {
     Company save(Company company);
 
-    Company update(Company company);
-
     List<Company> findAll(FilterCompany filter);
-
-    Company findById(String id);
-
-    void deleteById(String id);
 }

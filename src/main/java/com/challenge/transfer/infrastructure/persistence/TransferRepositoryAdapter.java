@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -21,22 +20,6 @@ public class TransferRepositoryAdapter implements TransferRepository {
         TransferEntity updatedTransferEntity = transferMapper.transferToTransferEntity(transfer);
         updatedTransferEntity = postgreSQLTransferRepository.save(updatedTransferEntity);
         return transferMapper.transferEntityToTransfer(updatedTransferEntity);
-    }
-
-    @Override
-    public Optional<Transfer> findById(String id) {
-        Optional<TransferEntity> transferEntity = postgreSQLTransferRepository.findById(id);
-        return transferEntity.map(transferMapper::transferEntityToTransfer);
-    }
-
-    @Override
-    public Transfer update(Transfer transfer) {
-        return this.save(transfer);
-    }
-
-    @Override
-    public void deleteById(String id) {
-        postgreSQLTransferRepository.deleteById(id);
     }
 
     @Override

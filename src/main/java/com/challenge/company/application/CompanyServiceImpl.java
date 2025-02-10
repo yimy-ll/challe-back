@@ -20,22 +20,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Company update(Company company) {
-        return companyRepository.update(company);
-    }
-
-    @Override
     public List<Company> findAll(FilterCompany filter) {
         return companyRepository.findAll(filter);
-    }
-
-    @Override
-    public Company findById(String id) {
-        return companyRepository.findById(id).orElseThrow();
-    }
-
-    @Override
-    public void deleteById(String id) {
-        companyRepository.deleteById(id);
     }
 }

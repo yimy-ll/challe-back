@@ -1,9 +1,7 @@
-package com.challenge.response.infrastructure;
+package com.challenge.utils;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Builder

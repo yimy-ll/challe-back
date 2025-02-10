@@ -26,22 +26,6 @@ public class CompanyRepositoryAdapter implements CompanyRepository {
     }
 
     @Override
-    public Optional<Company> findById(String id) {
-        Optional<CompanyEntity> companyEntity = postgreSQLCompanyRepository.findById(id);
-        return companyEntity.map(companyMapper::companyEntityToCompany);
-    }
-
-    @Override
-    public void deleteById(String id) {
-        postgreSQLCompanyRepository.deleteById(id);
-    }
-
-    @Override
-    public Company update(Company company) {
-        return this.save(company);
-    }
-
-    @Override
     public List<Company> findAll(FilterCompany filter) {
         return postgreSQLCompanyRepository.findAll(CompanySpecifications.findStockByFilter(filter)).stream()
                 .map(companyMapper::companyEntityToCompany)
