@@ -5,7 +5,6 @@ import com.challenge.company.domain.ports.in.CreateCompanyUseCase;
 import com.challenge.company.domain.ports.in.GetCompaniesByFilterUseCase;
 import com.challenge.company.infrastructure.web.filter.FilterCompany;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
