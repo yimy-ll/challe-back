@@ -1,30 +1,22 @@
-package com.challenge.company.application;
+package com.challenge.company.application.useCases;
 
 import com.challenge.company.domain.Company;
-import com.challenge.company.domain.CompanyRepository;
-import com.challenge.company.domain.CompanyService;
 import com.challenge.company.domain.exception.CompanyAlreadyExistsException;
-import com.challenge.company.infrastructure.web.filter.FilterCompany;
+import com.challenge.company.domain.ports.in.CreateCompanyUseCase;
+import com.challenge.company.domain.ports.out.CompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
-public class CompanyServiceImpl implements CompanyService {
+public class CreateCompanyUseCaseImpl implements CreateCompanyUseCase {
     private final CompanyRepository companyRepository;
 
     @Override
-    public Company save(Company company) {
+    public Company createCompany(Company company) {
         if(companyRepository.existsCompanyByName(company.getName()))
             throw new CompanyAlreadyExistsException(company.getName());
 
         return companyRepository.save(company);
-    }
-
-    @Override
-    public List<Company> findAll(FilterCompany filter) {
-        return companyRepository.findAll(filter);
     }
 }

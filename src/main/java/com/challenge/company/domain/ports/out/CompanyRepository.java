@@ -1,9 +1,9 @@
-package com.challenge.company.domain;
+package com.challenge.company.domain.ports.out;
 
+import com.challenge.company.domain.Company;
 import com.challenge.company.infrastructure.web.filter.FilterCompany;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CompanyRepository {
     Company save(Company company);

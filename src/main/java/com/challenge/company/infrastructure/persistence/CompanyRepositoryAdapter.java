@@ -1,7 +1,7 @@
 package com.challenge.company.infrastructure.persistence;
 
 import com.challenge.company.domain.Company;
-import com.challenge.company.domain.CompanyRepository;
+import com.challenge.company.domain.ports.out.CompanyRepository;
 import com.challenge.company.infrastructure.CompanyMapper;
 import com.challenge.company.infrastructure.persistence.entity.CompanyEntity;
 import com.challenge.company.infrastructure.persistence.specification.CompanySpecifications;
@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor

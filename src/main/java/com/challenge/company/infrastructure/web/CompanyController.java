@@ -1,7 +1,7 @@
 package com.challenge.company.infrastructure.web;
 
+import com.challenge.company.application.service.CompanyService;
 import com.challenge.company.domain.Company;
-import com.challenge.company.domain.CompanyService;
 import com.challenge.company.infrastructure.CompanyMapper;
 import com.challenge.company.infrastructure.web.dto.CompanyDto;
 import com.challenge.company.infrastructure.web.filter.FilterCompany;
@@ -70,7 +70,7 @@ public class CompanyController {
             @Parameter(description = "Filtros para la búsqueda de empresas")
             @ParameterObject FilterCompany filter
     ) {
-        List<Company> companies = companyService.findAll(filter);
+        List<Company> companies = companyService.getCompaniesByFilter(filter);
         List<CompanyDto> companiesDto = companies.stream()
                 .map(companyMapper::companyToCompanyDto)
                 .collect(Collectors.toList());
@@ -113,7 +113,7 @@ public class CompanyController {
     )
     @PostMapping("/create")
     public ResponseEntity<ResponseDto> createCompany(@Valid @RequestBody CompanyDto companyDto) {
-        Company company = companyService.save(companyMapper.companyDtoToCompany(companyDto));
+        Company company = companyService.createCompany(companyMapper.companyDtoToCompany(companyDto));
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ResponseDto.builder().status("success")
