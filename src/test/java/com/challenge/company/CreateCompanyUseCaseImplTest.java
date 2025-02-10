@@ -39,9 +39,14 @@ class CreateCompanyUseCaseImplTest {
 
         Company result = createCompanyUseCase.createCompany(company);
 
-        assertNotNull(result);
+        assertNotNull(result, "La empresa no debería ser nula");
+        assertEquals(company.getName(), result.getName(), "El nombre de la empresa no coincide");
+        assertEquals(company.getDateOfAccession(), result.getDateOfAccession(), "La fecha de adhesión no coincide");
+
         verify(companyRepository, times(1)).existsCompanyByName(company.getName());
         verify(companyRepository, times(1)).save(company);
+
+        verifyNoMoreInteractions(companyRepository);
     }
 
     @Test
